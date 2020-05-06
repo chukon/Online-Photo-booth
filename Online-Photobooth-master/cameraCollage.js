@@ -127,6 +127,8 @@ function takePicture() {
 
 
 function startMixingFunction() {
+  window.addEventListener('keyup', deleteObjectKeyboard. false)
+  canvas.setBackgroundColor('rgb(143, 49, 209)')
   cameraContentarea.className = 'displayNone'
   canvasMixArea.className = 'displayBlock'
 
@@ -148,6 +150,11 @@ function startMixingFunction() {
   //   canvas.add(hImg)
   // })
 } //end startMixingFuction
+
+function deleteObjectKeyboard(){
+  canvas,remove(canvas.getActiveObject())
+  canvas.requestRenderAll()
+}//end deleteObjectKeyboard
 
 function saveImage(e) {
   e.target.download = 'myImage.png'
