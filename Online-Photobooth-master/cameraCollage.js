@@ -132,6 +132,13 @@ function startMixingFunction() {
   cameraContentarea.className = 'displayNone'
   canvasMixArea.className = 'displayBlock'
 
+//delete item stuff
+let deleteIcon = 
+
+
+///////
+
+
   let webcamPicture = document.querySelector('#photo')
   let webcamPictureSrc = webcamPicture.getAttribute('src')
   fabric.Image.fromURL(webcamPictureSrc, function(wImg){
@@ -142,17 +149,11 @@ function startMixingFunction() {
     canvas.add(wImg)
   })
 
-  // fabric.Image.fromURL('images/horns.png', function(hImg){
-  //   hImg.set({
-  //     left: Math.random() = 600 + 100,
-  //     top: Math.random() = 400 + 100,
-  //   })
-  //   canvas.add(hImg)
-  // })
+
 } //end startMixingFuction
 
 function deleteObjectKeyboard(){
-  canvas,remove(canvas.getActiveObject())
+  canvas.remove(canvas.getActiveObject())
   canvas.requestRenderAll()
 }//end deleteObjectKeyboard
 
