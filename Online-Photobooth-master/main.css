@@ -1,0 +1,203 @@
+* {
+  border: 0px solid red;
+  margin: 50;
+  padding: 50;
+  box-sizing: border-box;
+}
+
+.displayNone {
+  display: none;
+}
+
+.displayBlock {
+  display: block;
+}
+
+body {
+  position: fixed;
+  text-align: center;
+border: 0px solid red;
+margin-right: 65em;
+background-color: #0047AB;
+  color: #eee;
+  rgb(247, 217, 255)
+}
+
+h1 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -750px;
+  margin-left: -140px;
+
+  padding-top: 10em;
+  /* border: 1px solid red; */
+  color: white;
+  text-align: center;
+}
+
+#fred {
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  margin-top: 85px;
+  margin-left: -160px;
+}
+
+#fred2 {
+position: fixed;
+top: 10%;
+left: 50%;
+margin-top: 10px;
+margin-left: -205px;
+/* border: 1px solid red; */
+}
+
+#video {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  margin-top: -270px;
+  margin-left: -250px;
+
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width: 480px;
+  height: 360px;
+  /* margin-left: 400px; */
+  /* help with camera reversal */
+  transform: rotateY(180deg);
+}
+
+#photo {
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -250px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width: 480px;
+  height: 360px;
+}
+
+#canvasPhoto {
+  display: none;
+}
+
+.camera {
+  border: 0px solid red;
+  /* width: 340px; */
+  display: inline-block;
+}
+
+.output {
+  /* width: 340px; */
+  display: inline-block;
+  vertical-align: top;
+  border: 0px solid red;
+  background-color: black
+}
+
+button, #downloadButton {
+  background-color: rgba(240, 0, 230, 0.5);
+  border: px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  color: rgba(255, 255, 255, 1.0);
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+#startButton {
+  /* display: flex;
+  flex-wrap: wrap;
+  margin-left: 500px;
+  margin-right: 255px;
+  bottom: 50px; */
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  margin-top: 40px;
+  margin-left: -250px;
+
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width: 480px;
+  height: 50px;
+  /* margin-left: 400px; */
+  /* help with camera reversal */
+
+}
+
+section{
+  font-size: 16px;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  width: 800px;
+}
+
+#cameraContentarea {
+  background-color: #0047AB;
+}
+
+#startMixingButton {
+  background-color: #3E94B3;
+  padding: 0.5em;
+  /* color: white;
+  text-decoration: none;
+  margin-left: 1em;
+  margin-bottom: 2em;
+  border: 1px solid red; */
+  position: fixed;
+  top: 81%;
+  left: 50%;
+  margin-top: 40px;
+  margin-left: -250px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width: 480px;
+  height: 50px;
+}
+
+#downloadButton{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 350px;
+  margin-left: 230px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width: 150px;
+  height: 35px;
+
+
+}
+
+#returnButton{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 350px;
+  margin-left: -300px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px black;
+  width: 150px;
+  height: 35px;
+
+
+}
+
+/* ------------------- */
+#canvasMixArea {
+  position: fixed;
+  top: 75%;
+  left: 35%;
+  margin-top: -750px;
+  margin-left: -140px;
+}
+
+#c {
+  background-image: url('images/checker.png');
+
+}
