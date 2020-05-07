@@ -24,6 +24,9 @@ let canvasMixArea = null
 
 let canvas = null
 
+let backButton = null
+let forwardButton = null
+
 
 function startUp() {
   cameraContentarea = document.querySelector('#cameraContentarea')
@@ -45,6 +48,9 @@ function startUp() {
   returnButton = document.querySelector('#returnButton')
   startMixingButton = document.querySelector('#startMixingButton')
 
+  backButton = document.querySelector('#backButton')
+  forwardButton = document.querySelector('#forwardButton')
+
   canvas = new fabric.Canvas('c')
 
   startButton.addEventListener('click', takePicture, false)
@@ -57,6 +63,10 @@ function startUp() {
   BigBurger.addEventListener('click', placeImage, false)
   BreadBuddy.addEventListener('click', placeImage, false)
   CatEyes.addEventListener('click', placeImage, false)
+
+
+  backButton.addEventListener('click', pushBack, false)
+  forwardButton.addEventListener('click', pushForward, false)
 
   video.addEventListener('click', function() {
     video.play()
@@ -132,50 +142,52 @@ function startMixingFunction() {
   cameraContentarea.className = 'displayNone'
   canvasMixArea.className = 'displayBlock'
 
-//delete item stuff
-let deleteIcon = "data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Ebene_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='595.275px' height='595.275px' viewBox='200 215 230 470' xml:space='preserve'%3E%3Ccircle style='fill:%23F44336;' cx='299.76' cy='439.067' r='218.516'/%3E%3Cg%3E%3Crect x='267.162' y='307.978' transform='matrix(0.7071 -0.7071 0.7071 0.7071 -222.6202 340.6915)' style='fill:white;' width='65.545' height='262.18'/%3E%3Crect x='266.988' y='308.153' transform='matrix(0.7071 0.7071 -0.7071 0.7071 398.3889 -83.3116)' style='fill:white;' width='65.544' height='262.179'/%3E%3C/g%3E%3C/svg%3E";
-let img = document.createElement('Img')
-img.src = deleteIcon
+  //delete item stuff
+  let deleteIcon = "data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Ebene_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='595.275px' height='595.275px' viewBox='200 215 230 470' xml:space='preserve'%3E%3Ccircle style='fill:%23F44336;' cx='299.76' cy='439.067' r='218.516'/%3E%3Cg%3E%3Crect x='267.162' y='307.978' transform='matrix(0.7071 -0.7071 0.7071 0.7071 -222.6202 340.6915)' style='fill:white;' width='65.545' height='262.18'/%3E%3Crect x='266.988' y='308.153' transform='matrix(0.7071 0.7071 -0.7071 0.7071 398.3889 -83.3116)' style='fill:white;' width='65.544' height='262.179'/%3E%3C/g%3E%3C/svg%3E";
+  let img = document.createElement('Img')
+  img.src = deleteIcon
 
-fabric.Object.prototype.transparentCorners = false
-fabric.Object.prototype.cornerStyle = 'blue'
-fabric.Object.prototype.cornerStyle = 'circle'
+  fabric.Object.prototype.transparentCorners = false
+  fabric.Object.prototype.cornerStyle = 'blue'
+  fabric.Object.prototype.cornerStyle = 'circle'
 
-fabric.Object.prototype.controls.deleteControl = new fabric.Control({
-position: {
-x: 0.5,
-y: -0.5
+  fabric.Object.prototype.controls.deleteControl = new fabric.Control({
+    position: {
+      x: 0.5,
+      y: -0.5
 
-},
-offsetX: 16,
-offsetY: -16,
-cursorStyle: 'pointer',
-mouseUpHandler: deleteObject,
-render: renderIcon,
-cornerSize: 24
+    },
+    offsetX: 16,
+    offsetY: -16,
+    cursorStyle: 'pointer',
+    mouseUpHandler: deleteObject,
+    render: renderIcon,
+    cornerSize: 24
 
-})
-function renderIcon(ctx, left, top, styleOverride, fabricObjecct){
-  let size = this.cornerSize
-  ctx.save()
-  ctx.translate(left, top)
-  // ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle))
-  ctx.drawImage(img, -size/2, -size/2, size, size)
-  ctx.restore()
-}
-function deleteObject(eventData, target){
-let canvas = target.canvas
-canvas.remove(target)
-canvas.requestRenderAll()
+  })
+
+  function renderIcon(ctx, left, top, styleOverride, fabricObjecct) {
+    let size = this.cornerSize
+    ctx.save()
+    ctx.translate(left, top)
+    // ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle))
+    ctx.drawImage(img, -size / 2, -size / 2, size, size)
+    ctx.restore()
+  }
+
+  function deleteObject(eventData, target) {
+    let canvas = target.canvas
+    canvas.remove(target)
+    canvas.requestRenderAll()
 
 
-}
-/////////
+  }
+  /////////
 
 
   let webcamPicture = document.querySelector('#photo')
   let webcamPictureSrc = webcamPicture.getAttribute('src')
-  fabric.Image.fromURL(webcamPictureSrc, function(wImg){
+  fabric.Image.fromURL(webcamPictureSrc, function(wImg) {
     wImg.set({
       left: 50,
       top: 50
@@ -186,10 +198,27 @@ canvas.requestRenderAll()
 
 } //end startMixingFuction
 
-function deleteObjectKeyboard(){
+function deleteObjectKeyboard() {
   canvas.remove(canvas.getActiveObject())
   canvas.requestRenderAll()
-}//end deleteObjectKeyboard
+} //end deleteObjectKeyboard
+
+function pushBack() {
+  canvas.sendBackwards(canvas.getActiveObject())
+  canvas.discardActiveObject()
+  canvas.requestRenderAll()
+  console.log('back')
+
+} //end pushback
+
+function pushForward() {
+  canvas.bringForward(canvas.getActiveObject())
+  canvas.discardActiveObject()
+  canvas.requestRenderAll()
+  console.log('forward')
+
+} // end pushforward
+
 
 function saveImage(e) {
   e.target.download = 'myImage.png'
@@ -208,7 +237,7 @@ function returnFunction() {
 function placeImage(e) {
   console.log(e.currentTarget.getAttribute('src'));
   let newImg = e.currentTarget.getAttribute('src')
-fabric.Image.fromURL(newImg, function(nImg){
+  fabric.Image.fromURL(newImg, function(nImg) {
     let newX = canvas.width / 2 - nImg.width / 2
     let newY = canvas.height / 2 - nImg.height / 2
     nImg.set({
