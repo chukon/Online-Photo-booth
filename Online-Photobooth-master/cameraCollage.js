@@ -189,8 +189,8 @@ function startMixingFunction() {
   let webcamPictureSrc = webcamPicture.getAttribute('src')
   fabric.Image.fromURL(webcamPictureSrc, function(wImg) {
     wImg.set({
-      left: 50,
-      top: 50
+      left: 0,
+      top: 0
     })
     canvas.add(wImg)
   })
