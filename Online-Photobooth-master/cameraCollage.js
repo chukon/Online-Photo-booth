@@ -193,7 +193,8 @@ console.log('delete canvas')
       top: 0
     })
     //canvas.add(wImg)
-    console.log('add canvas')
+    canvas.setBackgroundImage(wImg)
+    console.log('setBackgroundImage')
   })
 
 
