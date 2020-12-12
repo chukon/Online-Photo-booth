@@ -163,7 +163,7 @@ function startMixingFunction() {
     mouseUpHandler: deleteObject,
     render: renderIcon,
     cornerSize: 24
-
+console.log('fabric.Object.prototype.controls.deleteControl')
   })
 
   function renderIcon(ctx, left, top, styleOverride, fabricObjecct) {
@@ -173,13 +173,14 @@ function startMixingFunction() {
     // ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle))
     ctx.drawImage(img, -size / 2, -size / 2, size, size)
     ctx.restore()
+    console.log('renderIcon')
   }
 
   function deleteObject(eventData, target) {
     let canvas = target.canvas
     canvas.remove(target)
     canvas.requestRenderAll()
-
+console.log('delete canvas')
 
   }
   /////////
@@ -193,6 +194,7 @@ function startMixingFunction() {
       top: 0
     })
     canvas.add(wImg)
+    console.log('add canvas')
   })
 
 
