@@ -138,7 +138,7 @@ function takePicture() {
 
 function startMixingFunction() {
   window.addEventListener('keyup', deleteObjectKeyboard, false)
-  canvas.setBackgroundColor('rgb(143, 49, 209)')
+  //canvas.setBackgroundColor('rgb(143, 49, 209)')
   cameraContentarea.className = 'displayNone'
   canvasMixArea.className = 'displayBlock'
 
@@ -194,12 +194,7 @@ console.log('delete canvas')
     })
     //canvas.add(wImg)
     canvas.setBackgroundImage(wImg)
-    var a = document.getElementById("BeerMe");
-    var evnt = a["onclick"];
-
-    if (typeof(evnt) == "function") {
-    evnt.call(a);
-     }
+    canvas.requestRenderAll()
     console.log('setBackgroundImage')
   })
 
