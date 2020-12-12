@@ -10468,7 +10468,7 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
         activeGroupObjects = [];
         for (var i = 0, length = this._objects.length; i < length; i++) {
           object = this._objects[i];
-          console.log(object.name)
+          console.log(object)
           if (activeObjects.indexOf(object) === -1 ) {
             objsToRender.push(object);
           }
