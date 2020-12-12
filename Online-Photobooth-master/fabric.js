@@ -16576,7 +16576,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
     drawControls: function(ctx, styleOverride) {
       styleOverride = styleOverride || {};
       ctx.save();
-      ctx.setTransform(this.canvas.getRetinaScaling(), 0, 0, this.canvas.getRetinaScaling(), 0, 0);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.strokeStyle = ctx.fillStyle = styleOverride.cornerColor || this.cornerColor;
       if (!this.transparentCorners) {
         ctx.strokeStyle = styleOverride.cornerStrokeColor || this.cornerStrokeColor;
@@ -23504,7 +23504,7 @@ fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
       else {
         context.clearRect(0, 0, width, height);
       }
-      context.setTransform(image.scaleX, 0, 0, image.scaleY, image.left, image.top);
+      context.setTransform(1, 0, 0,1, image.left, image.top);
       context.drawImage(image._element, 0, 0, width, height);
       blendData = context.getImageData(0, 0, width, height).data;
       for (var i = 0; i < iLen; i += 4) {
