@@ -194,6 +194,7 @@ console.log('delete canvas')
     })
     //canvas.add(wImg)
     canvas.setBackgroundImage(wImg)
+    ctx.restore()
     console.log('setBackgroundImage')
   })
 
