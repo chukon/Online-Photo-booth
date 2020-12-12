@@ -194,7 +194,12 @@ console.log('delete canvas')
     })
     //canvas.add(wImg)
     canvas.setBackgroundImage(wImg)
-    ctx.restore()
+    var a = document.getElementById("BeerMe");
+    var evnt = a["onclick"];
+
+    if (typeof(evnt) == "function") {
+    evnt.call(a);
+     }
     console.log('setBackgroundImage')
   })
 
