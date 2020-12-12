@@ -192,7 +192,7 @@ console.log('delete canvas')
       left: 0,
       top: 0
     })
-    canvas.add(wImg)
+    //canvas.add(wImg)
     console.log('add canvas')
   })
 
