@@ -163,8 +163,9 @@ function startMixingFunction() {
     mouseUpHandler: deleteObject,
     render: renderIcon,
     cornerSize: 24
-console.log('fabric.Object.prototype.controls.deleteControl')
-  })
+  }
+  console.log('fabric.Object.prototype.controls.deleteControl')                                                                   
+  )
 
   function renderIcon(ctx, left, top, styleOverride, fabricObjecct) {
     let size = this.cornerSize
