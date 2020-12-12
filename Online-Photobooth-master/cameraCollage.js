@@ -7,12 +7,14 @@ let video = null
 let canvasPhoto = null
 let startButton = null
 let startMixingButton = null
-let BeerMe = null
-let Glasses = null
-let FunHat = null
-let BigBurger = null
-let BreadBuddy = null
-let CatEyes = null
+let p1 = null
+let p2 = null
+let p3 = null
+let p4 = null
+let p5 = null
+let p6 = null
+let p7 = null
+let p8 = null
 
 let db = null
 let returnButton = null
@@ -38,12 +40,15 @@ function startUp() {
   canvasPhoto = document.querySelector('#canvasPhoto')
   photo = document.querySelector('#photo')
   startButton = document.querySelector('#startButton')
-  BeerMe = document.querySelector('#BeerMe')
-  Glasses = document.querySelector('#Glasses')
-  FunHat = document.querySelector('#FunHat')
-  BigBurger = document.querySelector('#BigBurger')
-  BreadBuddy = document.querySelector('#BreadBuddy')
-  CatEyes = document.querySelector('#CatEyes')
+  p1 = document.querySelector('#1')
+   p2 = document.querySelector('#2')
+   p3 = document.querySelector('#3')
+   p4 = document.querySelector('#4')
+   p5 = document.querySelector('#5')
+   p6 = document.querySelector('#6')
+   p7 = document.querySelector('#7')
+   p8 = document.querySelector('#8')
+   p9 = document.querySelector('#9')
   db = document.querySelector('#downloadButton')
   returnButton = document.querySelector('#returnButton')
   startMixingButton = document.querySelector('#startMixingButton')
@@ -57,12 +62,15 @@ function startUp() {
   startMixingButton.addEventListener('click', startMixingFunction, false)
   downloadButton.addEventListener('click', saveImage, false)
   returnButton.addEventListener('click', returnFunction, false)
-  BeerMe.addEventListener('click', placeImage, false)
-  Glasses.addEventListener('click', placeImage, false)
-  FunHat.addEventListener('click', placeImage, false)
-  BigBurger.addEventListener('click', placeImage, false)
-  BreadBuddy.addEventListener('click', placeImage, false)
-  CatEyes.addEventListener('click', placeImage, false)
+  p1.addEventListener('click', placeImage, false)
+ p2.addEventListener('click', placeImage, false)
+  p3.addEventListener('click', placeImage, false)
+  p4.addEventListener('click', placeImage, false)
+  p5.addEventListener('click', placeImage, false)
+  p6.addEventListener('click', placeImage, false)
+  p7.addEventListener('click', placeImage, false)
+  p8.addEventListener('click', placeImage, false)
+  p9.addEventListener('click', placeImage, false)
 
 
   backButton.addEventListener('click', pushBack, false)
